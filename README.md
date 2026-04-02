@@ -5,7 +5,9 @@ using the Adzuna API, stores it in MySQL, and visualizes insights in Tableau.
 
 🔗 [View Tableau Dashboard](https://public.tableau.com/app/profile/shravya.venkiteela/viz/TechJobMarketAnalysis_17732511769710/JobMarketDashboard)
 
----
+---<img width="1186" height="654" alt="Screenshot 2025-03-22 203534" src="https://github.com/user-attachments/assets/a730a4ec-bb1a-49d7-b4e4-3726c68270e8" />
+<img width="1186" height="654" alt="Screenshot 2025-03-22 203534" src="https://github.com/user-attachments/assets/a730a4ec-bb1a-49d7-b4e4-3726c68270e8" />
+
 
 ## Overview
 This pipeline extracts 16,000+ job listings across 5 roles and 5 cities, classifies raw job 
