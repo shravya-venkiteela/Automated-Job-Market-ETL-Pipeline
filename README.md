@@ -59,6 +59,3 @@ measures real skill demand via targeted API queries.
 ```bash
    python pipeline_run.py
 ```
-
-## Author
-[Shravya Venkiteela](https://github.com/shravya-venkiteela)
