@@ -4,9 +4,10 @@ An end-to-end data pipeline that collects, transforms, and analyzes US tech job 
 using the Adzuna API, stores it in MySQL, and visualizes insights in Tableau.
 
 🔗 [View Tableau Dashboard](https://public.tableau.com/app/profile/shravya.venkiteela/viz/TechJobMarketAnalysis_17732511769710/JobMarketDashboard)
+<img width="1592" height="741" alt="Screenshot 2026-03-11 134401" src="https://github.com/user-attachments/assets/e0f162b4-e818-40a6-ae1a-41a8e9e9da12" />
+<img width="1592" height="741" alt="Screenshot 2026-03-11 134401" src="https://github.com/user-attachments/assets/e0f162b4-e818-40a6-ae1a-41a8e9e9da12" />
+[Dashboard Preview]
 
----<img width="1186" height="654" alt="Screenshot 2025-03-22 203534" src="https://github.com/user-attachments/assets/a730a4ec-bb1a-49d7-b4e4-3726c68270e8" />
-<img width="1186" height="654" alt="Screenshot 2025-03-22 203534" src="https://github.com/user-attachments/assets/a730a4ec-bb1a-49d7-b4e4-3726c68270e8" />
 
 
 ## Overview
