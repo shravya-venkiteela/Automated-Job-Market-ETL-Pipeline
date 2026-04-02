@@ -19,22 +19,22 @@ measures real skill demand via targeted API queries.
 
 ## ETL Pipeline
 
-**Extract** — `sample.py`
+**Extract** - `sample.py`
 - Collected 16,000+ listings via Adzuna API using Python
 - Handled pagination across 20 pages per title × city combination
 - Tagged each record with search context for downstream classification
 
-**Transform** — `useful_field.py`
+**Transform** - `useful_field.py`
 - Removed duplicate listings
 - Cleaned and normalized salary fields
 - Classified raw job titles into 5 role categories using regex
 - Extracted 10 technical skills from job descriptions
 
-**Load** — `sql_implement.py`
+**Load** - `sql_implement.py`
 - Designed normalized MySQL schema across 3 tables
 - Loaded 13,338 records using SQLAlchemy with foreign key constraints
 
-**Orchestrate** — `pipeline_run.py`
+**Orchestrate** - `pipeline_run.py`
 - Master script that chains all pipeline steps
 - Logs each run to `pipeline_log.txt` with timestamps
 
