@@ -1,0 +1,72 @@
+[
+    {
+        "title": "Senior Data Engineer",
+        "company": "Guidehouse",
+        "location": "Redstone Arsenal, Madison County",
+        "salary_min": 192564.08,
+        "salary_max": 192564.08
+    },
+    {
+        "title": "Data Engineer Intern",
+        "company": "Oshkosh Corporation",
+        "location": "Oshkosh, Winnebago County",
+        "salary_min": 67086.37,
+        "salary_max": 67086.37
+    },
+    {
+        "title": "Manager Data Engineering",
+        "company": "RELX INC",
+        "location": "Five Points, Wake County",
+        "salary_min": 166080.42,
+        "salary_max": 166080.42
+    },
+    {
+        "title": "Lead Data Engineer",
+        "company": "JPMorgan Chase",
+        "location": "Boston, Suffolk County",
+        "salary_min": 206753.52,
+        "salary_max": 206753.52
+    },
+    {
+        "title": "Senior Data Engineer",
+        "company": "Nike",
+        "location": "Cloverdale, Shelby County",
+        "salary_min": 178673.11,
+        "salary_max": 178673.11
+    },
+    {
+        "title": "Senior Data Engineer",
+        "company": "Insight Global",
+        "location": "Sunnyvale, Santa Clara County",
+        "salary_min": 212961.27,
+        "salary_max": 212961.27
+    },
+    {
+        "title": "Python Data Engineer",
+        "company": "Insight Global",
+        "location": "South Norwalk, Fairfield County",
+        "salary_min": 107444.45,
+        "salary_max": 107444.45
+    },
+    {
+        "title": "Senior Data Engineer",
+        "company": "CGI Technologies and Solutions, Inc.",
+        "location": "Atlanta, Fulton County",
+        "salary_min": 226097.16,
+        "salary_max": 226097.16
+    },
+    {
+        "title": "Senior Data Engineer",
+        "company": "Paramount",
+        "location": "Briggs, Los Angeles County",
+        "salary_min": 169391.61,
+        "salary_max": 169391.61
+    },
+    {
+        "title": "Senior Data Engineer",
+        "company": "Unity Technologies",
+        "location": "SoMa, San Francisco",
+        "salary_min": 221758.94,
+        "salary_max": 221758.94
+    }
+]

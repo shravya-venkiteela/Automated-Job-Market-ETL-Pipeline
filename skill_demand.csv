@@ -1,0 +1,51 @@
+role,skill,total_count
+software engineer,python,411
+software engineer,sql,52
+software engineer,aws,229
+software engineer,docker,7
+software engineer,kubernetes,38
+software engineer,spark,13
+software engineer,java,363
+software engineer,pytorch,5
+software engineer,tensorflow,4
+software engineer,golang,36
+data engineer,python,261
+data engineer,sql,142
+data engineer,aws,200
+data engineer,docker,5
+data engineer,kubernetes,8
+data engineer,spark,62
+data engineer,java,49
+data engineer,pytorch,4
+data engineer,tensorflow,0
+data engineer,golang,0
+data scientist,python,19
+data scientist,sql,12
+data scientist,aws,5
+data scientist,docker,0
+data scientist,kubernetes,0
+data scientist,spark,1
+data scientist,java,1
+data scientist,pytorch,0
+data scientist,tensorflow,0
+data scientist,golang,0
+machine learning engineer,python,14
+machine learning engineer,sql,0
+machine learning engineer,aws,38
+machine learning engineer,docker,1
+machine learning engineer,kubernetes,1
+machine learning engineer,spark,0
+machine learning engineer,java,5
+machine learning engineer,pytorch,2
+machine learning engineer,tensorflow,1
+machine learning engineer,golang,0
+backend developer,python,190
+backend developer,sql,19
+backend developer,aws,20
+backend developer,docker,2
+backend developer,kubernetes,8
+backend developer,spark,2
+backend developer,java,137
+backend developer,pytorch,4
+backend developer,tensorflow,1
+backend developer,golang,7
