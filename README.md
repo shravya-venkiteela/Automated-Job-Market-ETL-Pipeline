@@ -1,6 +1,6 @@
 # Job Market & Skill Demand Forecasting Engine
 
-A data science system that identifies high-impact technical skills to learn by analyzing real-time job market demand, salary signals, and emerging role clusters.
+A system that identifies high-impact technical skills to learn by analyzing real-time job market demand, salary signals, and emerging role clusters.
 
 🔗 [View Tableau Dashboard](https://public.tableau.com/app/profile/shravya.venkiteela/viz/TechJobMarketAnalysis_17732511769710/JobMarketDashboard)
 
