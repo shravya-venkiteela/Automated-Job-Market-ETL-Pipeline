@@ -1,7 +1,6 @@
-# Automated Job Market ETL Pipeline
+# Job Market & Skill Demand Forecasting Engine
 
-An end-to-end data pipeline that collects, transforms, and analyzes US tech job market data 
-using the Adzuna API, stores it in MySQL, and visualizes insights in Tableau.
+A data science system that identifies high-impact technical skills to learn by analyzing real-time job market demand, salary signals, and emerging role clusters.
 
 🔗 [View Tableau Dashboard](https://public.tableau.com/app/profile/shravya.venkiteela/viz/TechJobMarketAnalysis_17732511769710/JobMarketDashboard)
 
@@ -11,41 +10,31 @@ using the Adzuna API, stores it in MySQL, and visualizes insights in Tableau.
 
 
 ## Overview
-This pipeline extracts 16,000+ job listings across 5 roles and 5 cities, classifies raw job 
-titles using regex normalization, loads the cleaned data into a normalized MySQL database, and 
-measures real skill demand via targeted API queries.
 
+This project transforms raw job postings into a decision-making system for skill prioritization.
+
+Using 16,000+ real-world job listings across multiple roles and cities, it combines data engineering, machine learning, and analytics to uncover:
+
+Which skills are most in demand
+Which skills command higher salaries
+How roles cluster based on real-world job descriptions
+What skills are worth learning next
 ---
 
-## ETL Pipeline
-
-**Extract** - `sample.py`
-- Collected 16,000+ listings via Adzuna API using Python
-- Handled pagination across 20 pages per title × city combination
-- Tagged each record with search context for downstream classification
-
-**Transform** - `useful_field.py`
-- Removed duplicate listings
-- Cleaned and normalized salary fields
-- Classified raw job titles into 5 role categories using regex
-- Extracted 10 technical skills from job descriptions
-
-**Load** - `sql_implement.py`
-- Designed normalized MySQL schema across 3 tables
-- Loaded 13,338 records using SQLAlchemy with foreign key constraints
-
-**Orchestrate** - `pipeline_run.py`
-- Master script that chains all pipeline steps
-- Logs each run to `pipeline_log.txt` with timestamps
-
-## Key Findings
-- ML Engineer roles average **$190,070/year** — highest of all roles
-- **AWS** is required in **61%** of ML Engineer listings
-- **Python** is the top skill in 4 of 5 roles
-- **Software Engineer** has the most listings (4,724) across all cities
-- **Amazon** is the top hiring company for Data Engineer roles
-
----
+## System Capabilities
+### 1. Data Collection:
+Aggregates 16,000+ job listings across 5 roles and 5 US cities using the Adzuna API
+### 2. Skill Demand Modeling:
+Ranks skills using a Skill Importance Score based on:
+demand frequency
+salary weighting
+(extendable to growth trends)
+### 3. NLP-Based Job Segmentation
+Uses TF-IDF and K-Means Clustering to identify hidden job market segments beyond rule-based classification
+### 4. Recommendation Engine
+Outputs ranked skill recommendations with confidence levels based on data coverage
+### 5. Time-Series Tracking (in progress)
+Captures periodic snapshots to enable trend analysis and forecasting of skill demand
 
 ## How to Run
 1. Clone the repo
