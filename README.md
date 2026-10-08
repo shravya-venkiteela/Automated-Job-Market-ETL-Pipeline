@@ -1,6 +1,6 @@
-# Job Market & Skill Demand Forecasting Engine
+# Automated Job Market ETL Pipeline
 
-A system that identifies high-impact technical skills to learn by analyzing real-time job market demand, salary signals, and emerging role clusters.
+An ETL pipeline that turns 16,000+ job listings into a picture of which technical skills employers ask for, by role.
 
 🔗 [View Tableau Dashboard](https://public.tableau.com/app/profile/shravya.venkiteela/viz/TechJobMarketAnalysis_17732511769710/JobMarketDashboard)
 
@@ -11,43 +11,53 @@ A system that identifies high-impact technical skills to learn by analyzing real
 
 ## Overview
 
-This project transforms raw job postings into a decision-making system for skill prioritization.
+An ETL pipeline that collects 16,000+ real job listings from the Adzuna REST API, cleans them, and loads them into MySQL to answer one question: which technical skills do employers ask for, by role?
 
-Using 16,000+ real-world job listings across multiple roles and cities, it combines data engineering, machine learning, and analytics to uncover:
+It covers 5 roles (software engineer, data engineer, data scientist, machine learning engineer, backend developer) across 5 US cities (New York, San Francisco, Seattle, Austin, Boston).
 
-Which skills are most in demand
-Which skills command higher salaries
-How roles cluster based on real-world job descriptions
-What skills are worth learning next
 ---
 
-## System Capabilities
-### 1. Data Collection:
-Aggregates 16,000+ job listings across 5 roles and 5 US cities using the Adzuna API
-### 2. Skill Demand Modeling:
-Ranks skills using a Skill Importance Score based on:
-demand frequency
-salary weighting
-(extendable to growth trends)
-### 3. NLP-Based Job Segmentation
-Uses TF-IDF and K-Means Clustering to identify hidden job market segments beyond rule-based classification
-### 4. Recommendation Engine
-Outputs ranked skill recommendations with confidence levels based on data coverage
-### 5. Time-Series Tracking (in progress)
-Captures periodic snapshots to enable trend analysis and forecasting of skill demand
+## What each script does
+
+| Script | Step |
+|---|---|
+| `sample.py` | **Extract.** Pulls up to 20 pages of 100 listings per role and city from the Adzuna API and saves the raw JSON. Retries only errors that can succeed later (429 and 5xx) with exponential backoff and `Retry-After`; fails fast on others, such as 401 for a bad key. |
+| `useful_field.py` | **Transform.** Flattens the nested JSON, removes duplicates and listings without salary, normalizes job titles into role categories with regex, and flags 10 skills (Python, SQL, AWS, Docker, Kubernetes, Spark, Java, PyTorch, TensorFlow, Go) mentioned in each description. |
+| `sql_implement.py` | **Load.** Creates a normalized MySQL schema (`jobs`, `companies`, `locations`, with foreign keys) via SQLAlchemy and loads the cleaned data. |
+| `skill_demand.py` | **Skill demand.** Queries Adzuna's total listing counts for each role, skill and city (250 queries) and writes the share of skill mentions per role to `skill_demand_pivot.csv`. |
+| `pipeline_run.py` | **Runner.** Runs the transform and load steps as subprocesses, checks each exit code, and writes timestamped logs to `pipeline_log.txt`, so a failing step stops the run and points to the error. |
+
+## Key finding
+
+AWS accounts for 61% of the skill mentions in Machine Learning Engineer listings, the highest share of any skill for any role in the sample (see `skill_demand_pivot.csv`).
 
 ## How to Run
+
 1. Clone the repo
 2. Install dependencies:
 ```bash
    pip install requests pandas sqlalchemy mysql-connector-python
 ```
-3. Add your Adzuna API credentials to `sample.py`
-4. Create MySQL database:
+3. Add your Adzuna API credentials to `sample.py` (never commit real keys)
+4. Add your MySQL connection details to `sql_implement.py`, and create the database:
 ```sql
    CREATE DATABASE job_market;
 ```
-5. Run the full pipeline:
+5. Collect the raw data:
+```bash
+   python sample.py
+```
+6. Run the transform and load steps:
 ```bash
    python pipeline_run.py
 ```
+7. Optional, for the skill-demand table:
+```bash
+   python skill_demand.py
+```
+
+## Limitations
+
+- Skills are detected by keyword match in the description Adzuna returns, which is often truncated, so counts understate real demand.
+- Data is a single snapshot; there is no trend tracking over time yet.
+- Credentials are set in source files; environment variables would be safer.
